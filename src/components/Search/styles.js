@@ -7,7 +7,7 @@ export const Container = styled.div`
   gap: 10px;
 
   input {
-    width: calc(100% - 110px);
+    width: calc(100% - 90px);
     height: 2.5rem;
     border-radius: 5px;
     border: none;
