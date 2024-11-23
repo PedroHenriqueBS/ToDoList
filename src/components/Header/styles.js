@@ -14,4 +14,11 @@ export const Container = styled.header`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  @media (max-width: 360px) {
+    h1 {
+      text-align: center;
+      font-size: 2.7rem;
+    }
+  }
 `

@@ -9,14 +9,19 @@ import remove from "../../../assets/remove.svg";
 export default function TasksBox(props) {
   return (
     <Container
-    
-      style={{ 
-        background: props.tasks.check === true ? "rgba(57, 57, 57, .3)" : "rgba(57, 57, 57, 1)",
+      style={{
+        background:
+          props.tasks.check === true
+            ? "rgba(57, 57, 57, .3)"
+            : "rgba(57, 57, 57, 1)",
       }}
     >
-      {console.log(props.tasks.total)}
-      <div style={{background: 'transparent'}}>
-        <button onClick={() => {props.onCheck(props.tasks.id), props.onComplete(props.tasks.id)}}>
+      <div style={{ background: "transparent" }}>
+        <button
+          onClick={() => {
+            props.onCheck(props.tasks.id), props.onComplete(props.tasks.id);
+          }}
+        >
           <img
             src={props.tasks.check ? circleCheck : circle}
             alt="button check"
@@ -24,12 +29,13 @@ export default function TasksBox(props) {
         </button>
         <span
           style={{
-            textDecoration: props.tasks.check === true ? "line-through" : "none",
-            color: props.tasks.check === true ? "rgba(255, 255, 255, .4)" : "#fff",
+            textDecoration:
+              props.tasks.check === true ? "line-through" : "none",
+            color:
+              props.tasks.check === true ? "rgba(255, 255, 255, .4)" : "#fff",
           }}
         >
           {props.tasks.text}
-
         </span>
       </div>
       <button className="remove" onClick={() => props.onRemove(props.tasks.id)}>
@@ -38,4 +44,3 @@ export default function TasksBox(props) {
     </Container>
   );
 }
-
