@@ -4,15 +4,24 @@ import React from "react";
 import { Container } from "./styles";
 import taskImg from '../../../assets/card-list.svg'
 
-export default function TasksCounter({ tipo, taskTotal }) {
-  const totalConcluidas = tipo.reduce((acumulador, elementoAtual) => {
-    return elementoAtual.complete > 0
-      ? acumulador + elementoAtual.complete : acumulador;
+export default function TasksCounter({ tasks, taskTotal }) {
+
+  const totalConcluidas = tasks.reduce((acumulador, elementoAtual) => {
+    const tasksCheck = acumulador + elementoAtual.complete
+
+    if(tasksCheck === taskTotal){
+      alert('PARABÉNS, você finalizou todas as tarefas!')
+      setTimeout(() => {
+        location.reload();
+      }, 600);
+    }
+    
+    return elementoAtual.complete > 0 ? tasksCheck : acumulador;
   }, 0);
 
   return (
     <Container>
-      {tipo.length > 0 ? (
+      {tasks.length > 0 ? (
         <>
           <div>
             <p>Tarefas criadas</p>

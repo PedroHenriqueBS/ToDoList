@@ -72,7 +72,7 @@ export default function Tasks() {
         <button onClick={handleCreated}>Submit</button>
       </div>
 
-      <TasksCounter tipo={tasks} taskTotal={total} />
+      <TasksCounter tasks={tasks} taskTotal={total} />
 
       {tasks.map((item) => (
         <TasksBox
