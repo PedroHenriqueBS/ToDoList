@@ -40,6 +40,14 @@ export default function Tasks() {
     );
   };
 
+  const handleSaveEdit = (taskId, newText) => {
+    setTasks((prevState) =>
+      prevState.map((task) =>
+        task.id === taskId ? { ...task, text: newText } : task
+      )
+    );
+  };
+
   const handleRemove = (taskId) => {
     setTasks((prevState) => {
       const newTasks = prevState.filter((task) => task.id !== taskId); // Remove a tarefa
@@ -80,6 +88,7 @@ export default function Tasks() {
           onCheck={handleCheck}
           onRemove={handleRemove}
           onComplete={handleComplete}
+          onEdit={handleSaveEdit}
           tasks={{
             id: item.id,
             complete: item.complete,

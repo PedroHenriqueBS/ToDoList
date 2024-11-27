@@ -13,7 +13,7 @@ export const Container = styled.div`
     gap: 10px;
   }
 
-  img, span {
+  img, span, div {
     background-color: transparent;
   }
 

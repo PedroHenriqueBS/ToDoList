@@ -1,12 +1,33 @@
 "use client";
 
-import React from "react";
+import React, {useState} from "react";
 import { Container } from "./styles";
 import circle from "../../../assets/circle.svg";
 import circleCheck from "../../../assets/check-circle.svg";
 import remove from "../../../assets/remove.svg";
+import edit from "../../../assets/edit.svg";
+import save from "../../../assets/save.svg";
+import cancel from "../../../assets/cancel.svg";
 
 export default function TasksBox(props) {
+
+  const [isEditing, setIsEditing] = useState(false); // Define se está em modo de edição
+  const [newText, setNewText] = useState(props.tasks.text); // Texto temporário para edição
+
+  const handleEdit = () => {
+    setIsEditing(true); // Ativa o modo de edição
+  };
+
+  const handleSave = () => {
+    props.onEdit(props.tasks.id, newText); // Salva a alteração
+    setIsEditing(false); // Sai do modo de edição
+  };
+
+  const handleCancel = () => {
+    setNewText(props.tasks.text); // Restaura o texto original
+    setIsEditing(false); // Sai do modo de edição
+  };
+
   return (
     <Container
       style={{
@@ -35,12 +56,34 @@ export default function TasksBox(props) {
               props.tasks.check === true ? "rgba(255, 255, 255, .4)" : "#fff",
           }}
         >
-          {props.tasks.text}
+          {isEditing ? (
+        <div>
+          <input
+            style={{padding: '3px 5px', borderRadius: '5px', border: 'none'}}
+            type="text"
+            value={newText}
+            onChange={(e) => setNewText(e.target.value)} // Atualiza o texto 
+          />
+          <button onClick={handleSave}>
+            <img src={save} alt="Remover tarefa"></img>
+          </button>
+          <button onClick={handleCancel}>
+            <img src={cancel} alt="Remover tarefa"></img>
+          </button>
+        </div>
+      ) : (
+        <span>{props.tasks.text}</span>
+      )}
         </span>
       </div>
-      <button className="remove" onClick={() => props.onRemove(props.tasks.id)}>
-        <img src={remove} alt="Remover tarefa"></img>
-      </button>
+      <div>
+        <button onClick={handleEdit}>
+          <img src={edit} alt="Remover tarefa"></img>
+        </button>
+        <button className="remove" onClick={() => props.onRemove(props.tasks.id)}>
+          <img src={remove} alt="Remover tarefa"></img>
+        </button>
+      </div>
     </Container>
   );
 }
