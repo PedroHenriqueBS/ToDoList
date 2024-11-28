@@ -25,7 +25,7 @@ export default function Tasks() {
         },
       ]),
       setTotal((prevState) => prevState + 1),
-      setVariavel("") // Limpa o input após criar)
+      setVariavel("") 
 
       if (inputRef.current) {
         inputRef.current.focus();
@@ -71,11 +71,10 @@ export default function Tasks() {
       <div className="search">
         <input
           type="text"
-          placeholder="Adicionar uma nova tarefa"
+          placeholder="Adicione uma nova tarefa"
           onChange={event => setVariavel(event.target.value)}
           value={variavel}
           ref={inputRef}
-          id="send"
         />
         <button onClick={handleCreated}>Submit</button>
       </div>

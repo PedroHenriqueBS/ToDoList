@@ -21,6 +21,7 @@ export const Container = styled.div`
       border: none;
       background-color: #393939;
       padding-left: 20px;
+      color: #fff;
     }
 
     button {
@@ -31,6 +32,7 @@ export const Container = styled.div`
       font-weight: bold;
       cursor: pointer;
       transition: .1s;
+      color: #fff;
 
       &:active {
         box-shadow: 1px 1px 5px green;

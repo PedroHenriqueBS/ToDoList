@@ -29,13 +29,7 @@ export default function TasksBox(props) {
   };
 
   return (
-    <Container
-      style={{
-        background:
-          props.tasks.check === true
-            ? "rgba(57, 57, 57, .3)"
-            : "rgba(57, 57, 57, 1)",
-      }}
+    <Container isCheck={props.tasks.check}
     >
       <div style={{ background: "transparent" }}>
         <button
@@ -48,27 +42,22 @@ export default function TasksBox(props) {
             alt="button check"
           ></img>
         </button>
-        <span
-          style={{
-            textDecoration:
-              props.tasks.check === true ? "line-through" : "none",
-            color:
-              props.tasks.check === true ? "rgba(255, 255, 255, .4)" : "#fff",
-          }}
-        >
+        
+        <span className="text" isCheck={props.tasks.check}>
+          
           {isEditing ? (
         <div>
           <input
-            style={{padding: '3px 5px', borderRadius: '5px', border: 'none'}}
+            className="editText"
             type="text"
             value={newText}
             onChange={(e) => setNewText(e.target.value)} // Atualiza o texto 
           />
           <button onClick={handleSave}>
-            <img src={save} alt="Remover tarefa"></img>
+            <img src={save} alt="icone para salvar tarefa"></img>
           </button>
           <button onClick={handleCancel}>
-            <img src={cancel} alt="Remover tarefa"></img>
+            <img src={cancel} alt="icone para cancelar tarefa"></img>
           </button>
         </div>
       ) : (
@@ -78,10 +67,10 @@ export default function TasksBox(props) {
       </div>
       <div>
         <button onClick={handleEdit}>
-          <img src={edit} alt="Remover tarefa"></img>
+          <img src={edit} alt="icone para editar tarefa"></img>
         </button>
-        <button className="remove" onClick={() => props.onRemove(props.tasks.id)}>
-          <img src={remove} alt="Remover tarefa"></img>
+        <button onClick={() => props.onRemove(props.tasks.id)}>
+          <img src={remove} alt="icone para remover tarefa"></img>
         </button>
       </div>
     </Container>

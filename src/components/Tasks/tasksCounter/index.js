@@ -35,22 +35,9 @@ export default function TasksCounter({ tasks, taskTotal }) {
           </div>
         </>
       ) : (
-        <div style={{
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center'
-          }}>
+        <div className="noneTasks">
           <img src={taskImg} alt={'card de tarefas'}/>
-          <h1
-            style={{
-              color: "#d3d3d3",
-              fontSize: "12px",
-              margin: "auto",
-            }}
-          >
-            Não há tarefas aqui, adicione uma nova!
-          </h1>
+          <h1> Não há tarefas aqui, adicione uma nova!</h1>
         </div>
       )}
     </Container>

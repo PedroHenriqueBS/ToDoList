@@ -23,4 +23,17 @@ export const Container = styled.div`
         font-size: .8rem;
       }
     }
+
+    .noneTasks {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        h1 {
+          color: #d3d3d3;
+          font-size: 12px;
+          margin: auto;
+        }
+      }
 `;
