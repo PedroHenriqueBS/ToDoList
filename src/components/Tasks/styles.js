@@ -13,15 +13,34 @@ export const Container = styled.div`
     gap: 10px;
     margin-bottom: 10px;
     transform: translateY(-25px);
+    background-color: transparent;
 
     input {
       width: calc(100% - 90px);
       height: 2.5rem;
       border-radius: 5px;
       border: none;
-      background-color: #393939;
+      background-color: ${({ theme }) => theme.input};
       padding-left: 20px;
       color: #fff;
+    }
+
+    input::placeholder {
+        color: ${({ theme }) => theme.inputColor}
+    }
+
+    .theme {
+      background-color: transparent;
+      padding: 0;
+      border-radius: 0;
+
+      img {
+        background: transparent;
+      }
+
+      &:active {
+        box-shadow: none;
+      }
     }
 
     button {

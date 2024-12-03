@@ -4,11 +4,16 @@ import { Container } from "./styles";
 import TasksCounter from "./tasksCounter";
 import TasksBox from "./tasksBox";
 
-export default function Tasks() {
+import themeLight from '../../assets/lightbulb.svg'
+import themeDark from '../../assets/lightbulb-fill.svg'
+
+export default function Tasks({ onToggleTheme, selectedTheme }) {
   const [tasks, setTasks] = useState([]);
   const [total, setTotal] = useState(0);
   const [variavel, setVariavel] = useState(""); 
   const inputRef = useRef(null);
+
+  console.log(onToggleTheme)
 
   const handleCreated = () => {
     if (!variavel.trim()){
@@ -69,6 +74,9 @@ export default function Tasks() {
   return (
     <Container>
       <div className="search">
+        <button onClick={onToggleTheme} className="theme">
+          <img src={selectedTheme === 'dark' ? themeLight : themeDark}/>
+        </button>
         <input
           type="text"
           placeholder="Adicione uma nova tarefa"

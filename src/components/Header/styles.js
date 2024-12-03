@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-  background-color: #1C1C1C;
+  background-color: ${({ theme }) => theme.headerBackgroundColor};
   height: 200px;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@ export const Container = styled.header`
   h1 {
     padding: 55px 20px;
     font-size: 3.5rem;
-    background-image: linear-gradient(90deg, lightgreen, green);
+    background-image: ${({ theme }) => theme.degrade};
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

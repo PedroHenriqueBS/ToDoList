@@ -2,9 +2,10 @@
 
 import React from "react";
 import { Container } from "./styles";
-import taskImg from '../../../assets/card-list.svg'
+import taskImgDark from '../../../assets/card-list.svg'
+import taskImgLight from '../../../assets/card-list-light.svg'
 
-export default function TasksCounter({ tasks, taskTotal }) {
+export default function TasksCounter({ tasks, taskTotal}) {
 
   const totalConcluidas = tasks.reduce((acumulador, elementoAtual) => {
     const tasksCheck = acumulador + elementoAtual.complete
@@ -36,7 +37,7 @@ export default function TasksCounter({ tasks, taskTotal }) {
         </>
       ) : (
         <div className="noneTasks">
-          <img src={taskImg} alt={'card de tarefas'}/>
+          <img src={false ? taskImgDark : taskImgLight} alt={'card de tarefas'}/>
           <h1> Não há tarefas aqui, adicione uma nova!</h1>
         </div>
       )}

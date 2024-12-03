@@ -1,15 +1,13 @@
 import React from "react";
-import { Container } from "./styles";
 
 import Header from "../Header";
 import Tasks from "../Tasks";
 
-export default function Layout() {
-
+export default function Layout({ onToggleTheme, selectedTheme }) {
   return (
-    <Container>
+    <>
       <Header />
-      <Tasks />
-    </Container>
+      <Tasks onToggleTheme={onToggleTheme} selectedTheme={selectedTheme}/>
+    </>
   );
 }

@@ -5,35 +5,36 @@ export const Container = styled.div`
   justify-content: space-between;
   margin-bottom: 10px;
 
-    div {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+  div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-      p { 
-        color: #05E08C; 
-        font-size: .9rem;
-        font-weight: bolder;
-      }
-
-      span { 
-        background-color: #535353;
-        padding: 3px 6px;
-        border-radius: 10px;
-        font-size: .8rem;
-      }
+    p {
+      color: ${({ theme }) => theme.textCounter};
+      font-size: 0.9rem;
+      font-weight: bolder;
     }
 
-    .noneTasks {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        
-        h1 {
-          color: #d3d3d3;
-          font-size: 12px;
-          margin: auto;
-        }
-      }
+    span {
+      background-color: ${({ theme }) => theme.boxCounter};
+      padding: 3px 6px;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      color: #fff;
+    }
+  }
+
+  .noneTasks {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+      color: ${({ theme }) => theme.h1None};
+      font-size: 12px;
+      margin: auto;
+    }
+  }
 `;
