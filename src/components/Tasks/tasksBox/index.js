@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Container } from "./styles";
 import circle from "../../../assets/circle.svg";
 import circleCheck from "../../../assets/check-circle.svg";
@@ -10,7 +10,6 @@ import save from "../../../assets/save.svg";
 import cancel from "../../../assets/cancel.svg";
 
 export default function TasksBox(props) {
-
   const [isEditing, setIsEditing] = useState(false); // Define se está em modo de edição
   const [newText, setNewText] = useState(props.tasks.text); // Texto temporário para edição
 
@@ -29,9 +28,8 @@ export default function TasksBox(props) {
   };
 
   return (
-    <Container isCheck={props.tasks.check}
-    >
-      <div style={{ background: "transparent" }}>
+    <Container isCheck={props.tasks.check}>
+      <div>
         <button
           onClick={() => {
             props.onCheck(props.tasks.id), props.onComplete(props.tasks.id);
@@ -42,27 +40,26 @@ export default function TasksBox(props) {
             alt="button check"
           ></img>
         </button>
-        
+
         <span className="text" isCheck={props.tasks.check}>
-          
           {isEditing ? (
-        <div>
-          <input
-            className="editText"
-            type="text"
-            value={newText}
-            onChange={(e) => setNewText(e.target.value)} // Atualiza o texto 
-          />
-          <button onClick={handleSave}>
-            <img src={save} alt="icone para salvar tarefa"></img>
-          </button>
-          <button onClick={handleCancel}>
-            <img src={cancel} alt="icone para cancelar tarefa"></img>
-          </button>
-        </div>
-      ) : (
-        <span>{props.tasks.text}</span>
-      )}
+            <div>
+              <input
+                className="editText"
+                type="text"
+                value={newText}
+                onChange={(e) => setNewText(e.target.value)} // Atualiza o texto
+              />
+              <button onClick={handleSave}>
+                <img src={save} alt="icone para salvar tarefa"></img>
+              </button>
+              <button onClick={handleCancel}>
+                <img src={cancel} alt="icone para cancelar tarefa"></img>
+              </button>
+            </div>
+          ) : (
+            <span>{props.tasks.text}</span>
+          )}
         </span>
       </div>
       <div>

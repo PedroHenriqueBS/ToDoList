@@ -21,7 +21,7 @@ export const Container = styled.div`
       padding: 3px 6px;
       border-radius: 10px;
       font-size: 0.8rem;
-      color: #fff;
+      color: #FFF;
     }
   }
 

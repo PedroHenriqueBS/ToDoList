@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background: ${({ isCheck }) => isCheck ? "rgba(57, 57, 57, .3)" : ({ theme }) => theme.input};
+  background: ${({ isCheck }) => isCheck ? ({ theme }) => theme.inputCheck : ({ theme }) => theme.input};
   display: flex;
   justify-content: space-between;
   padding: 15px 20px;
@@ -16,23 +16,21 @@ export const Container = styled.div`
 
   .text {
     text-decoration: ${({ isCheck }) => (isCheck ? "line-through" : "none")};
-    color: ${({ isCheck }) => (isCheck ? "rgba(255, 255, 255, .4)" : "#fff")};
+    color: ${({ isCheck }) => isCheck ? ({theme}) => theme.inputColorOpacity : ({theme}) => theme.inputColor};
   }
 
   .editText {
     padding: 3px 5px;
     border-radius: 5px;
     border: none;
-    color: #fff;
-    background-color: ${({ theme }) => theme.input};
+    color: ${({ theme }) => theme.inputColor};
   }
 
-  img, span, div {
+  img, span, div, button, .editText {
     background-color: transparent;
   }
 
   button {
-    background-color: transparent;
     border: none;
     cursor: pointer;
   }

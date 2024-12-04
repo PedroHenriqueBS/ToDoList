@@ -9,13 +9,6 @@ export default function TasksCounter({ tasks, taskTotal}) {
 
   const totalConcluidas = tasks.reduce((acumulador, elementoAtual) => {
     const tasksCheck = acumulador + elementoAtual.complete
-
-    if(tasksCheck === taskTotal){
-      alert('PARABÉNS, você finalizou todas as tarefas!')
-      setTimeout(() => {
-        location.reload();
-      }, 600);
-    }
     
     return elementoAtual.complete > 0 ? tasksCheck : acumulador;
   }, 0);

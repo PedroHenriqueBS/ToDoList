@@ -22,11 +22,12 @@ export const Container = styled.div`
       border: none;
       background-color: ${({ theme }) => theme.input};
       padding-left: 20px;
-      color: #fff;
+      color: ${({ theme }) => theme.inputColor};
     }
 
     input::placeholder {
-        color: ${({ theme }) => theme.inputColor}
+        color: ${({ theme }) => theme.inputColor};
+        opacity: 0.5;
     }
 
     .theme {
