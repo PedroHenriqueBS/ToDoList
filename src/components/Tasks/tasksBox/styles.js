@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background: ${({ isCheck }) => isCheck ? ({ theme }) => theme.inputCheck : ({ theme }) => theme.input};
+  background: ${({ isCheck }) => isCheck 
+  ? ({ theme }) => theme.inputCheck 
+  : ({ theme }) => theme.input};
   display: flex;
   justify-content: space-between;
   padding: 15px 20px;
@@ -12,11 +14,19 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
+
+    span {
+      margin-right: 10px;
+      word-break: break-word; 
+      overflow-wrap: break-word; 
+    }
   }
 
   .text {
     text-decoration: ${({ isCheck }) => (isCheck ? "line-through" : "none")};
-    color: ${({ isCheck }) => isCheck ? ({theme}) => theme.inputColorOpacity : ({theme}) => theme.inputColor};
+    color: ${({ isCheck }) => isCheck 
+    ? ({theme}) => theme.inputColorOpacity 
+    : ({theme}) => theme.inputColor};
   }
 
   .editText {
@@ -33,5 +43,16 @@ export const Container = styled.div`
   button {
     border: none;
     cursor: pointer;
+  }
+
+  @media (max-width: 415px){
+    .editor {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      input { width: 130px; }
+      div { display: flex; }
+    }
   }
 `;

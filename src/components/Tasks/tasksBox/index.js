@@ -43,19 +43,21 @@ export default function TasksBox(props) {
 
         <span className="text" isCheck={props.tasks.check}>
           {isEditing ? (
-            <div>
+            <div className="editor">
               <input
                 className="editText"
                 type="text"
                 value={newText}
                 onChange={(e) => setNewText(e.target.value)} // Atualiza o texto
               />
-              <button onClick={handleSave}>
-                <img src={save} alt="icone para salvar tarefa"></img>
-              </button>
-              <button onClick={handleCancel}>
-                <img src={cancel} alt="icone para cancelar tarefa"></img>
-              </button>
+              <div>
+                <button onClick={handleSave}>
+                  <img src={save} alt="icone para salvar tarefa"></img>
+                </button>
+                <button onClick={handleCancel}>
+                  <img src={cancel} alt="icone para cancelar tarefa"></img>
+                </button>
+              </div>
             </div>
           ) : (
             <span>{props.tasks.text}</span>

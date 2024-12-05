@@ -16,18 +16,21 @@ export const Container = styled.div`
     background-color: transparent;
 
     input {
-      width: calc(100% - 90px);
+      width: 100%;
       height: 2.5rem;
       border-radius: 5px;
       border: none;
       background-color: ${({ theme }) => theme.input};
-      padding-left: 20px;
+      padding: 0 20px;
       color: ${({ theme }) => theme.inputColor};
+      white-space: nowrap;       /* Evita quebra de linha no placeholder */
+      overflow: hidden;          /* Oculta o texto excedente */
+      text-overflow: ellipsis;   /* Adiciona os "..." no final */
     }
 
     input::placeholder {
-        color: ${({ theme }) => theme.inputColor};
-        opacity: 0.5;
+      color: ${({ theme }) => theme.inputColor};
+      opacity: 0.5;
     }
 
     .theme {
@@ -35,13 +38,8 @@ export const Container = styled.div`
       padding: 0;
       border-radius: 0;
 
-      img {
-        background: transparent;
-      }
-
-      &:active {
-        box-shadow: none;
-      }
+      img { background: transparent; }
+      &:active { box-shadow: none; }
     }
 
     button {
@@ -54,9 +52,7 @@ export const Container = styled.div`
       transition: .1s;
       color: #fff;
 
-      &:active {
-        box-shadow: 1px 1px 5px green;
-      }
+      &:active { box-shadow: 1px 1px 5px green; }
     }
   }
 `;
