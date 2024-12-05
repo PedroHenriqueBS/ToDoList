@@ -1,7 +1,13 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  background: ${({ isCheck }) => isCheck 
+export const Container = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== "isCheck",
+})
+.attrs((props) => ({
+  "data-ischeck": props.isCheck ? props.isCheck.toString() : undefined,
+}))
+`
+  background: ${( props ) => props.isCheck 
   ? ({ theme }) => theme.inputCheck 
   : ({ theme }) => theme.input};
   display: flex;
@@ -23,8 +29,8 @@ export const Container = styled.div`
   }
 
   .text {
-    text-decoration: ${({ isCheck }) => (isCheck ? "line-through" : "none")};
-    color: ${({ isCheck }) => isCheck 
+    text-decoration: ${( props ) => (props.isCheck ? "line-through" : "none")};
+    color: ${( props ) => props.isCheck 
     ? ({theme}) => theme.inputColorOpacity 
     : ({theme}) => theme.inputColor};
   }

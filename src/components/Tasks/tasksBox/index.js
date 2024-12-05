@@ -41,7 +41,7 @@ export default function TasksBox(props) {
           ></img>
         </button>
 
-        <span className="text" isCheck={props.tasks.check}>
+        <span className="text">
           {isEditing ? (
             <div className="editor">
               <input

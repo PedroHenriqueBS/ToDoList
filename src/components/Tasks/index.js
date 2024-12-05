@@ -13,8 +13,6 @@ export default function Tasks({ onToggleTheme, selectedTheme }) {
   const [variavel, setVariavel] = useState(""); 
   const inputRef = useRef(null);
 
-  console.log(onToggleTheme)
-
   const handleCreated = () => {
     if (!variavel.trim()){
       alert('Adicione uma tarefa no espaço vazio!')
