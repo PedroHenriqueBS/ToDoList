@@ -23,9 +23,7 @@ export const Container = styled.div`
       background-color: ${({ theme }) => theme.input};
       padding: 0 20px;
       color: ${({ theme }) => theme.inputColor};
-      white-space: nowrap;       /* Evita quebra de linha no placeholder */
-      overflow: hidden;          /* Oculta o texto excedente */
-      text-overflow: ellipsis;   /* Adiciona os "..." no final */
+      text-overflow: ellipsis;  
     }
 
     input::placeholder {

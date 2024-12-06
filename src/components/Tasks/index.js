@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Container } from "./styles";
 
 import TasksCounter from "./tasksCounter";
@@ -8,10 +8,17 @@ import themeLight from '../../assets/lightbulb.svg'
 import themeDark from '../../assets/lightbulb-fill.svg'
 
 export default function Tasks({ onToggleTheme, selectedTheme }) {
-  const [tasks, setTasks] = useState([]);
-  const [total, setTotal] = useState(0);
+  const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  const savedTotal = savedTasks.length;
+
+  const [tasks, setTasks] = useState(savedTasks);
+  const [total, setTotal] = useState(savedTotal);
   const [variavel, setVariavel] = useState(""); 
   const inputRef = useRef(null);
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
 
   const handleCreated = () => {
     if (!variavel.trim()){
