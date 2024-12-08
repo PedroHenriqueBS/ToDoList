@@ -8,6 +8,7 @@ export default function Layout({ onToggleTheme, selectedTheme }) {
     <>
       <Header />
       <Tasks onToggleTheme={onToggleTheme} selectedTheme={selectedTheme}/>
+      
     </>
   );
 }
